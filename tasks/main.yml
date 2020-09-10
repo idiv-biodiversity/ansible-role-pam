@@ -1,0 +1,26 @@
+---
+
+- name: load distro specific variables
+  ansible.builtin.include_vars: >-
+    {{ lookup('ansible.builtin.first_found', __pam_vars_files) }}
+  tags:
+    - pam-install
+    - pam-config
+
+- name: run preflight tasks
+  ansible.builtin.import_tasks: preflight.yml
+  tags:
+    - pam-install
+    - pam-config
+
+- name: run installation tasks
+  ansible.builtin.import_tasks: install.yml
+  tags:
+    - pam-install
+
+- name: run configuration tasks
+  ansible.builtin.import_tasks: config.yml
+  tags:
+    - pam-config
+
+...

@@ -1,0 +1,13 @@
+---
+
+__pam_packages:
+  - pam
+
+__pam_ldap_packages:
+  - nss-pam-ldapd
+
+__pam_gnome_keyring_packages:
+  - gnome-keyring
+  - util-linux # /etc/pam.d/login
+
+...

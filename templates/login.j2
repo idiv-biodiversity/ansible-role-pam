@@ -1,0 +1,13 @@
+#%PAM-1.0
+
+auth       requisite    pam_nologin.so
+auth       include      system-local-login
+{% if pam_gnome_keyring %}
+auth       optional     pam_gnome_keyring.so
+{% endif %}
+account    include      system-local-login
+session    include      system-local-login
+{% if pam_gnome_keyring %}
+session    optional     pam_gnome_keyring.so auto_start
+{% endif %}
+password   include      system-local-login

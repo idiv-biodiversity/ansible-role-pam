@@ -1,0 +1,17 @@
+---
+
+- name: install pam packages
+  ansible.builtin.package:
+    name: '{{ __pam_packages }}'
+
+- name: install pam_gnome_keyring packages
+  ansible.builtin.package:
+    name: '{{ __pam_gnome_keyring_packages }}'
+  when: pam_gnome_keyring
+
+- name: install pam_ldap packages
+  ansible.builtin.package:
+    name: '{{ __pam_ldap_packages }}'
+  when: pam_ldap
+
+...

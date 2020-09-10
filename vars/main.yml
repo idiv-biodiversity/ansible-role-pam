@@ -1,0 +1,51 @@
+---
+
+# -----------------------------------------------------------------------------
+# distro / os handles
+# -----------------------------------------------------------------------------
+
+__pam_distro: >-
+  {{ ansible_distribution | lower }}
+
+__pam_os: >-
+  {{ ansible_os_family | lower }}
+
+__pam_distro_version: >-
+  {{ __pam_distro }}_{{ ansible_distribution_major_version }}
+
+__pam_os_version: >-
+  {{ __pam_os }}_{{ ansible_distribution_major_version }}
+
+# -----------------------------------------------------------------------------
+# first found snippets
+# -----------------------------------------------------------------------------
+
+__pam_first_found:
+  - '{{ __pam_distro_version }}'
+  - '{{ __pam_os_version }}'
+  - '{{ __pam_distro }}'
+  - '{{ __pam_os }}'
+  - default
+
+__pam_vars_files:
+  files: >-
+    {{
+      __pam_first_found |
+        map('regex_replace', '$', '.yml') |
+        list
+    }}
+  paths:
+    - vars
+
+# -----------------------------------------------------------------------------
+# other
+# -----------------------------------------------------------------------------
+
+__pam_virtualized: >-
+  {{
+    ansible_facts.virtualization_role == "guest"
+    and
+    ansible_facts.virtualization_type == "docker"
+  }}
+
+...

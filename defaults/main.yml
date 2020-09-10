@@ -1,0 +1,7 @@
+---
+
+pam_gnome_keyring: no
+pam_ldap: no
+pam_mkhomedir: no
+
+...
