@@ -6,7 +6,7 @@
     dest: /etc/pam.d/system-auth
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   become: yes
 
 - name: configure /etc/pam.d/login
@@ -15,7 +15,7 @@
     dest: /etc/pam.d/login
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   become: yes
 
 ...
