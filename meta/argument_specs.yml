@@ -1,0 +1,19 @@
+---
+
+argument_specs:
+  main:
+    options:
+
+      pam_gnome_keyring:
+        required: yes
+        type: bool
+
+      pam_ldap:
+        required: yes
+        type: bool
+
+      pam_mkhomedir:
+        required: yes
+        type: bool
+
+...
