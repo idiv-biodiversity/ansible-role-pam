@@ -3,15 +3,21 @@
 - name: install pam packages
   ansible.builtin.package:
     name: '{{ __pam_packages }}'
+  when:
+    - __pam_packages is defined
 
 - name: install pam_gnome_keyring packages
   ansible.builtin.package:
     name: '{{ __pam_gnome_keyring_packages }}'
-  when: pam_gnome_keyring
+  when:
+    - pam_gnome_keyring
+    - __pam_gnome_keyring_packages is defined
 
 - name: install pam_ldap packages
   ansible.builtin.package:
     name: '{{ __pam_ldap_packages }}'
-  when: pam_ldap
+  when:
+    - pam_ldap
+    - __pam_ldap_packages is defined
 
 ...
