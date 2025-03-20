@@ -2,7 +2,14 @@
 
 - name: converge
   hosts: all
+
+  pre_tasks:
+
+    - name: update package cache
+      ansible.builtin.import_tasks: ../tasks/package-cache.yml
+
   tasks:
+
     - name: include the role
       ansible.builtin.include_role:
         name: idiv_biodiversity.pam

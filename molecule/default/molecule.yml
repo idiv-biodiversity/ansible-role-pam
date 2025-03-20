@@ -9,17 +9,17 @@ driver:
 platforms:
 
   - name: archlinux
-    image: carlodepieri/docker-archlinux-ansible:latest
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
-    privileged: yes
+    image: ghcr.io/idiv-biodiversity/ansible-molecule-archlinux:latest
     pre_build_image: yes
+    groups:
+      - nosudo
 
 provisioner:
   name: ansible
   inventory:
-    host_vars:
-      archlinux:
-        ansible_user: ansible
+    group_vars:
+      nosudo:
+        ansible_become_method: su
 
 verifier:
   name: ansible
