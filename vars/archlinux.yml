@@ -7,7 +7,7 @@ __pam_ldap_packages:
   - nss-pam-ldapd
 
 __pam_gnome_keyring_packages:
-  - gnome-keyring
+  - gnome-keyring # pam_gnome_keyring.so
   - util-linux # /etc/pam.d/login
 
 ...
