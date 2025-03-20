@@ -57,7 +57,7 @@ roles:
     src: https://github.com/idiv-biodiversity/ansible-role-nslcd
     version: vX.Y.Z
 
-  # only neede for pam_ldap
+  # only needed for pam_ldap
   - name: idiv_biodiversity.nsswitch
     src: https://github.com/idiv-biodiversity/ansible-role-nsswitch
     version: vX.Y.Z
