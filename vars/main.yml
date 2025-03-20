@@ -37,15 +37,4 @@ __pam_vars_files:
   paths:
     - vars
 
-# -----------------------------------------------------------------------------
-# other
-# -----------------------------------------------------------------------------
-
-__pam_virtualized: >-
-  {{
-    ansible_facts.virtualization_role == "guest"
-    and
-    ansible_facts.virtualization_type == "docker"
-  }}
-
 ...
