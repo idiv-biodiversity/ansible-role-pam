@@ -3,9 +3,9 @@
 roles:
 
   - name: idiv_biodiversity.nslcd
-    version: v0.1.0
+    src: https://github.com/idiv-biodiversity/ansible-role-nslcd
 
   - name: idiv_biodiversity.nsswitch
-    version: v1.1.0
+    src: https://github.com/idiv-biodiversity/ansible-role-nsswitch
 
 ...
